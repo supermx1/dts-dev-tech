@@ -1,13 +1,18 @@
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, uniqueIndex } from 'drizzle-orm/sqlite-core';
 import { sql } from "drizzle-orm";
-import { createId } from '@paralleldrive/cuid2';
 
+// Database schema for the task table
 export const task = sqliteTable('task', {
-	id: text('id').$defaultFn(() => createId()).primaryKey(),
+	id: text('id').primaryKey(),
 	title: text('title').notNull(),
 	description: text('description').notNull(),
-	dueDate: integer('due_date', { mode: 'timestamp' }).notNull(),
-	createdAt: integer('created_at', { mode: 'timestamp' }).notNull().default(sql`(CURRENT_TIMESTAMP)`),
-	completedAt: integer('completed_at', { mode: 'timestamp' }),
+	dueDate: text('due_date').notNull(),
+	createdAt: text('created_at').notNull().default(sql`CURRENT_TIMESTAMP`),
+	completedAt: text('completed_at'),
 	status: text('status', { enum: ['pending', 'in-progress', 'completed'] }).notNull()
-});
+}, (t) => ({
+	// Created a unique index on the title, dueDate, description and status columns tp prevent duplicates
+	task_unique: uniqueIndex('task_unique').on(t.title, t.dueDate, t.description, t.status) 
+}));
+
+

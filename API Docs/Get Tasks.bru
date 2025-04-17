@@ -1,0 +1,21 @@
+meta {
+  name: Get Tasks
+  type: http
+  seq: 2
+}
+
+get {
+  url: http://localhost:5173/api/v1/task
+  body: none
+  auth: none
+}
+
+headers {
+  x-auth-token: base64-key-required
+}
+
+docs {
+  Version 1: 
+  
+  Get a list of tasks created by the user. Requires a header present.
+}

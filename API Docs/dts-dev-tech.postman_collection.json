@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "5c02feb0-7785-4cf5-b84c-9af2114c6aa6",
+		"name": "dts-dev-tech",
+		"description": "Rest API Endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15707822"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "124316138381",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"Chukwuemeka Anyakora\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5173/api/v1/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5173",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -10,13 +10,11 @@
 	let { children } = $props();
 </script>
 
-<!-- <svelte:head>
-	<link href="/favicon.ico" rel="shortcut icon" id="favico" type="images/vnd.microsoft.icon">
-</svelte:head> -->
-
 {#if !$user}
+	<!-- Login -->
 	<Login />
 {:else}
+	<!-- Navbar -->
 	<div class="navbar bg-neutral shadow-sm md:px-4">
 		<div class="flex-1">
 			<a href="/">
@@ -24,6 +22,7 @@
 			</a>
 		</div>
 		<div class="flex-none">
+			<!-- New Task button -->
 			<button
 				onclick={() => newTaskModal.showModal()}
 				class="btn mr-2 border-[#e5e5e5] bg-white text-black hover:bg-zinc-200"
@@ -31,6 +30,7 @@
 				<Icon icon="mdi:plus" />
 				New Task
 			</button>
+			<!-- User dropdown -->
 			<div class="dropdown dropdown-end">
 				<div
 					tabindex="0"
@@ -38,7 +38,7 @@
 					class="btn btn-ghost btn-circle avatar border-base-300 border"
 				>
 					<div class="w-10 rounded-full">
-						<img alt="Avatar" src={generateSVGAvatar($user)} />
+						<img alt="Avatar" src={generateSVGAvatar(atob($user))} />
 					</div>
 				</div>
 				<ul
@@ -47,7 +47,7 @@
 				>
 					<li class="border-b-base-300 mb-2 border-b pb-2 font-bold">
 						{timeOfDayGreeting()},
-						{$user ?? 'Guest'}
+						{atob($user) ?? 'Guest'}
 					</li>
 
 					<li>
@@ -74,9 +74,11 @@
 		</div>
 	</div>
 
+	<!-- Task Modal -->
 	<TaskModal />
+	<!-- Page content -->
+	{@render children()}
 {/if}
 
-{@render children()}
-
+<!-- Toaster -->
 <Toaster richColors />

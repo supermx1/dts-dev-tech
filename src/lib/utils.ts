@@ -1,6 +1,7 @@
 import { createAvatar } from '@dicebear/core';
 import { initials } from '@dicebear/collection';
 
+// Generate an SVG avatar
 export function generateSVGAvatar(name: string) {
 	return createAvatar(initials, {
 		seed: name,
@@ -9,6 +10,7 @@ export function generateSVGAvatar(name: string) {
 	}).toDataUri();
 }
 
+// Format the date for the task list
 export function formatDateExt(dt: string) {
 	const date = new Date(dt);
 	return date.toLocaleDateString('en-NG', {
@@ -21,6 +23,7 @@ export function formatDateExt(dt: string) {
 	});
 }
 
+// Get the time of day greeting
 export function timeOfDayGreeting() {
 	const hour = new Date().getHours();
 	if (hour >= 0 && hour < 12) {
@@ -30,4 +33,11 @@ export function timeOfDayGreeting() {
 	} else {
 		return 'Good evening';
 	}
+}
+
+// Format the date for the input field
+export function formatDateForInput(isoDate: string): string {
+	if (!isoDate) return '';
+	const date = new Date(isoDate);
+	return date.toISOString().slice(0, 16);
 }

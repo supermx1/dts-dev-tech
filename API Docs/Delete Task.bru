@@ -1,0 +1,31 @@
+meta {
+  name: Delete Task
+  type: http
+  seq: 5
+}
+
+delete {
+  url: http://localhost:5173/api/v1/task
+  body: json
+  auth: inherit
+}
+
+headers {
+  x-auth-token: base64-key-required
+}
+
+body:json {
+  {
+    "id": "ccuid2-id"
+  }
+}
+
+docs {
+  Version 1: 
+  
+  Delete a task by sending the task in json with this shape 
+  
+  {
+      "id": ""
+  }
+}

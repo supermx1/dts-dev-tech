@@ -3,9 +3,15 @@
 
 	let username = $state('Chukwuemeka Anyakora');
 
-	function login() {
-		localStorage.setItem('username', username);
-		$user = username;
+	// Login function
+	async function login() {
+		const response = await fetch('/api/v1/login', {
+			method: 'POST',
+			body: JSON.stringify({ username })
+		});
+		const data = await response.json();
+		localStorage.setItem('token', data.token);
+		$user = data.token;
 	}
     </script>
 
@@ -13,7 +19,7 @@
 <!--- IT IS ONLY USED TO SET THE USERNAME IN LOCAL STORAGE -->
 
 <div class="flex h-screen flex-col items-center justify-center bg-white">
-	<div class="w-full max-w-md bg-zinc-100">
+	<div class="w-full max-w-sm md:max-w-md rounded-lg bg-zinc-100">
 		<div class="bg-neutral flex justify-center p-4">
 			<img src="/logo--default.svg" alt="logo" class="h-10" />
 		</div>

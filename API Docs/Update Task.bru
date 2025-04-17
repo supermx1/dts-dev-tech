@@ -1,0 +1,37 @@
+meta {
+  name: Update Task
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:5173/api/v1/task
+  body: json
+  auth: inherit
+}
+
+headers {
+  x-auth-token: base64-key-required
+}
+
+body:json {
+  {
+    "title": "Give him a Job",
+    "description": "Please Give Chukwuemeka Anyakora a Job. He put in a lot of work for this test!",
+    "dueDate": "2025-04-24",
+    "status": "completed"
+  }
+}
+
+docs {
+  Version 1:
+  
+  Update a task by sending the task in json with this shape 
+  
+  {
+      "title": "",
+      "description": "",
+      "dueDate": "",
+      "status": ""
+  }
+}

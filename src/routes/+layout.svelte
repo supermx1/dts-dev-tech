@@ -27,8 +27,8 @@
 				onclick={() => newTaskModal.showModal()}
 				class="btn mr-2 border-[#e5e5e5] bg-white text-black hover:bg-zinc-200"
 			>
-				<Icon icon="mdi:plus" />
-				New Task
+				<Icon icon="mdi:plus" class="size-5 md:size-4" />
+				<span class="hidden md:block">New Task</span>
 			</button>
 			<!-- User dropdown -->
 			<div class="dropdown dropdown-end">

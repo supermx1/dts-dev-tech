@@ -1,0 +1,21 @@
+meta {
+  name: Get Task
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:5173/api/v1/task/ulrsk2st2wy64qmq3iywadd5
+  body: none
+  auth: none
+}
+
+headers {
+  x-auth-token: base64-key-required
+}
+
+docs {
+  Version 1: 
+  
+  Get a task by the id provided
+}

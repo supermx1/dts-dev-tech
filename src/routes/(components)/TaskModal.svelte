@@ -215,7 +215,7 @@
 					</fieldset>
 				</div>
 				<fieldset class="fieldset col-span-2 w-full">
-					<label for="description" class="fieldset-label">Description</label>
+					<label for="description" class="fieldset-label">Description <span class="text-xs italic">(optional)</span></label>
 					<textarea
 						id="description"
 						bind:value={data.description}
@@ -224,7 +224,7 @@
 					></textarea>
 				</fieldset>
 				<div class="col-span-2 flex items-center justify-between">
-					<button type="submit" class="btn btn-primary">
+					<button disabled={loading || !data.title || !data.dueDate || !data.status} type="submit" class="btn btn-primary">
 						{#if loading}
 							<Icon icon="lucide:loader" class="animate-spin" />
 						{/if}

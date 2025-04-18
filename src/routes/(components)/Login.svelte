@@ -1,7 +1,7 @@
 <script>
 	import { user } from '$lib/stores/user';
 
-	let username = $state('Chukwuemeka Anyakora');
+	let username = $state('Super Mx');
 
 	// Login function
 	async function login() {
@@ -13,13 +13,13 @@
 		localStorage.setItem('token', data.token);
 		$user = data.token;
 	}
-    </script>
+</script>
 
 <!--- PAGE IS ENTIRELY UNPROTECTED AND UNNECESSARY 😀 -->
 <!--- IT IS ONLY USED TO SET THE USERNAME IN LOCAL STORAGE -->
 
 <div class="flex h-screen flex-col items-center justify-center bg-white">
-	<div class="w-full max-w-sm md:max-w-md rounded-lg bg-zinc-100">
+	<div class="w-full max-w-xs rounded-lg bg-zinc-100 sm:max-w-sm md:max-w-md">
 		<div class="bg-neutral flex justify-center p-4">
 			<img src="/logo--default.svg" alt="logo" class="h-10" />
 		</div>

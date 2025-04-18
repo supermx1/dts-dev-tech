@@ -1,0 +1,62 @@
+headers {
+  x-auth-token: base64-key-required
+}
+
+docs {
+  API collection for Task Management System | HMCTS
+  
+  ## Endpoints
+  
+  ### 1. Create
+  Create a new task
+  - **URL:** `/api/v1/task`
+  - **Method:** `POST`
+  - **Request Body:**
+  
+  ```json
+    {
+        "title": "",
+        "description": "",
+        "dueDate": "",
+        "status": ""
+    }
+  ```
+  
+  ### 2. Retrieve
+  Get tasks
+  - **URL:** `/api/v1/task`
+  - **Method:** `GET`
+  - **Request Body:**
+  
+  ```json
+    {}
+  ```
+  
+  ### 3. Update
+  Update a task
+  - **URL:** `/api/v1/task`
+  - **Method:** `PATCH`
+  - **Request Body:**
+  
+  ```json
+      {
+      "id": "",
+      "title": "",
+      "description": "",
+      "dueDate": "",
+      "status": ""
+      }
+  ```
+  
+  ### 4. Delete
+  Delete a task
+  - **URL:** `/api/v1/task`
+  - **Method:** `DELETE`
+  - **Request Body:**
+  
+  ```json
+      {
+      "id": ""
+      }
+  ```
+}

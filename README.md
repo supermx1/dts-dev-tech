@@ -18,16 +18,28 @@ This is an application that allows case workers to create and manage tasks.
 
 - PNPM is used as the package manager.
 
-
 ## Features
 
 - Create a task
 - View a task
 - Update a task
 - Delete a task
-- *Very* Crude Auth
+- _Very_ Crude Auth
 - Filter tasks (TODO)
 
+## Folder Structure
+
+```text
+.
+├── API Docs/      # API documentation collections (Bruno, Postman)
+├── e2e/           # End-to-end tests
+├── src/           # Application source code (frontend & backend)
+├── static/        # Static assets (fonts, images, favicon)
+├── tests/         # Unit and integration tests
+├── package.json   # Project dependencies and scripts
+├── README.md      # Project overview and instructions
+├── ...            # Other config and setup files
+```
 
 ## Setup
 
